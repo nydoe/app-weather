@@ -6,22 +6,25 @@ const forecast = (longitude,latitude,callback) => {
         //console.log(res.body)
         const currently = body.daily.data[0].summary
         const precipProbability = body.currently.precipProbability
+        const temperatureMax = body.daily.data[0].temperatureHigh
         
-        const forecast = `${currently} it is currently ${precipProbability} % chance of rain`
+        const forecast = `${currently} it is currently ${body.currently.temperature} degress out. This higth today ${temperatureMax} there is a ${precipProbability} % chance of rain`
         const err = error
        
             if(err){
             callback(`Unable to connect Weather service!`,undefined)
                 } else if(body.error){
                     callback(`unable to find lacation`,undefined)
-                }
-            callback(undefined, {
-                latitude,
-                longitude,
-                forecast
+                } else {
+                    // console.log(body.daily.data[0])
+                    callback(undefined, {
+                        latitude,
+                        longitude,
+                        forecast
+                    }
+                )
             }
-        )
-    })    
-}
+        })    
+    }
 
 module.exports = forecast

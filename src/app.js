@@ -22,7 +22,7 @@ app.set('views',viewsPath)
 //setup static directory to server
 app.use(express.static(publicDirectorypath))
 
-app.get('/fetch',(req,res) => {
+app.get('/',(req,res) => {
     res.render('index',{
         title:'just un test',
         forecast:'fetch',
@@ -45,7 +45,11 @@ app.get('/weather',(req,res) => {
             if(error){
                 return res.send({ error })
             }
-            //res.render('index')
+            // res.render('index',{
+            //     forecast:forecastData,
+            //     location,
+            //     address: req.query.address
+            // })
             res.send({
                 forecast:forecastData,
                 location,
