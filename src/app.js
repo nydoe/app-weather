@@ -7,6 +7,7 @@ const geocode = require('./utils/geocode')
 const path = require('path')
 const express = require('express')
 const app = express()
+const port = process.env.PORT || 5050
 
 //Define paths for Express config
 const publicDirectorypath = path.join(__dirname,'../public')
@@ -100,4 +101,4 @@ app.get('*',(req,res) => {
         errorMessage:'Page not found'
     })
 })
-app.listen(5050,() => console.log(`Server is on prot 5050`) )
+app.listen(port,() => console.log(`Server is on port:${port}`) )

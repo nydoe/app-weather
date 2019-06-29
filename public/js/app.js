@@ -26,7 +26,7 @@
             messageOne.textContent = 'Loading...'
             messageTwo.textContent = ''
             //console.log(location)
-        fetch(`http://localhost:5050/weather?address=${location}`)
+        fetch(`/weather?address=${location}`)
         .then(res => res.json()
             .then(data => {
                 if(data.error){
