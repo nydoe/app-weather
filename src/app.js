@@ -1,7 +1,7 @@
 const forecast = require('./utils/forecast')
 const geocode = require('./utils/geocode')
 
-//console.log(forecast())
+console.log(forecast())
 
 //const ejs = require('ejs')
 const path = require('path')
